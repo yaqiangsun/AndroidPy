@@ -205,6 +205,10 @@ Temporary Items
 .pg  # TensorFlow Frozen Graphs
 .avi # videos
 
+
+.buildozer/*
+
+
 # Sensitive or high-churn files:
 .idea/**/dataSources/
 .idea/**/dataSources.ids
