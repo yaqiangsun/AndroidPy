@@ -21,9 +21,12 @@ To generate .apk in `./bin`.
 
 Java Runtime Enviroment is needed.  
 
-`sudo apt-get install default-jdk` to install `javac`  
+`sudo apt-get install default-jdk` to install `javac`.  
 
-`buildozer android clean` can solve `No module named _ctypes` error  
+`sudo apt-get install zlib1g-dev git-core Cython openjdk-11-jdk` is needed. 
+
+`buildozer android clean` can solve `No module named _ctypes` error. 
+
 
 add JAVA_HOME to enviroment, bashrc or zshrc:  
 `export PATH=/usr/lib/usr/lib/jvm/java-11-openjdk-amd64/bin:$PATH`
