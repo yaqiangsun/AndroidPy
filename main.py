@@ -5,7 +5,7 @@ from kivy.uix.label import Label
 from kivy.core.window import Window
 
 
-kivy.resources.resource_add_path("./data")
+kivy.resources.resource_add_path("./font")
 font1=kivy.resources.resource_find("SourceHanSansSC-Light.otf")
 
 
