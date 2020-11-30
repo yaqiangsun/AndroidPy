@@ -29,6 +29,6 @@ Java Runtime Enviroment is needed.
 
 
 add JAVA_HOME to enviroment, bashrc or zshrc:  
-`export PATH=/usr/lib/usr/lib/jvm/java-11-openjdk-amd64/bin:$PATH`
-`export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64`
+    `export PATH=/usr/lib/usr/lib/jvm/java-11-openjdk-amd64/bin:$PATH`  
+    `export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64`  
 
