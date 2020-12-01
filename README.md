@@ -19,6 +19,8 @@ To generate .apk in `./bin`.
 ## some error
 -------
 
+Run in Python3.6  
+
 Java Runtime Enviroment is needed.  
 
 `sudo apt-get install default-jdk` to install `javac`.  
@@ -31,4 +33,16 @@ Java Runtime Enviroment is needed.
 add JAVA_HOME to enviroment, bashrc or zshrc:  
     `export PATH=/usr/lib/usr/lib/jvm/java-11-openjdk-amd64/bin:$PATH`  
     `export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64`  
+
+
+## chinese support
+
+modify buildozer.spec, language file type `otf` should be added  
+    `source.include_exts = py,png,jpg,kv,atlas,otf`  
+    
+    
+
+fullscreen = 1 in buildozer.spec
+
+
 
