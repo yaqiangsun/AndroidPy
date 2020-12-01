@@ -5,7 +5,7 @@ from kivy.uix.label import Label
 from kivy.core.window import Window
 from kivy.uix.boxlayout import BoxLayout
 from kivy.graphics import Rectangle,Color
-
+from kivy.uix.screenmanager import ScreenManager,Screen
 
 Window.clearcolor = (1, 1, 1, 1)
 # kivy.resources.resource_add_path("./font")
@@ -21,6 +21,7 @@ from jnius import autoclass
 Color = autoclass("android.graphics.Color")
 WindowManager = autoclass('android.view.WindowManager$LayoutParams')
 activity = autoclass('org.kivy.android.PythonActivity').mActivity
+View = autoclass('android.view.View')
 
 Builder.load_string('''
 <MainApp>:
@@ -74,18 +75,39 @@ class MainApp(BoxLayout):
         window.setStatusBarColor(Color.parseColor(color))
         window.setNavigationBarColor(Color.parseColor(color))
 
+        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)# set status text to black
+
 class TestApp(App):
     def build(self):
+
+
         btn = Button(text='Hello World!你好',
-                   font_size="20sp",
-                   color=(0,1,1,1),
-                   background_color=(0,0.5,0.5,1),
-                   size=(50,50),
-                   size_hint=(0.3,0.1),
-                   pos=(200,200),
-                   font_name='SourceHanSansSC')
+                     font_size="20sp",
+                     color=(0, 1, 1, 1),
+                     background_color=(0, 0.5, 0.5, 1),
+                     size=(50, 50),
+                     size_hint=(0.1, 0.4),
+                     pos=(200, 200),
+                     font_name='SourceHanSansSC')
+
+
+
+        screenmanager = ScreenManager()
+        screen = Screen(name="mainscreen")
+
+        mainscreen = MainApp()
+        mainscreen.add_widget(btn)
+        screen.add_widget(MainApp())
+
+        screenmanager.add_widget(screen)
+
+
+
+
+
+
         # return btn
-        return MainApp()
+        return screenmanager
         # return Button(text='Hello World!你好')
 
 TestApp().run()
