@@ -18,6 +18,12 @@ from android.runnable import run_on_ui_thread
 from jnius import autoclass
 
 
+from kivy.core.text import LabelBase
+from kivy.resources import resource_add_path,resource_find
+resource_add_path('./data/fonts')
+from kivy.core.text import LabelBase
+LabelBase.register(name='SourceHanSansSC',fn_regular='SourceHanSansSC-Light.otf')
+
 Color = autoclass("android.graphics.Color")
 WindowManager = autoclass('android.view.WindowManager$LayoutParams')
 activity = autoclass('org.kivy.android.PythonActivity').mActivity
@@ -28,7 +34,8 @@ Builder.load_string('''
     orientation: 'vertical'
 
     Button:
-        text: 'White'
+        text: 'White白色'
+        font_name:'SourceHanSansSC'
         on_press: root.statusbar("#FFFFFF")
 
     Button:
@@ -55,11 +62,7 @@ Builder.load_string('''
 
 
 
-from kivy.core.text import LabelBase
-from kivy.resources import resource_add_path,resource_find
-resource_add_path('./data/fonts')
-from kivy.core.text import LabelBase
-LabelBase.register(name='SourceHanSansSC',fn_regular='SourceHanSansSC-Light.otf')
+
 
 
 
@@ -96,7 +99,7 @@ class TestApp(App):
         screen = Screen(name="mainscreen")
 
         mainscreen = MainApp()
-        mainscreen.add_widget(btn)
+        # mainscreen.add_widget(btn)
         screen.add_widget(MainApp())
 
         screenmanager.add_widget(screen)
