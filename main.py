@@ -84,7 +84,8 @@ class TestApp(App):
                    size_hint=(0.3,0.1),
                    pos=(200,200),
                    font_name='SourceHanSansSC')
-        return btn
+        # return btn
+        return MainApp()
         # return Button(text='Hello World!你好')
 
 TestApp().run()
